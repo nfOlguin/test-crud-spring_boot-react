@@ -46,3 +46,16 @@ docker-compose up -d
 
 
 ## Frontend
+se crea estructura para proyecto frontend incorporando react redux, la estructura base contiene:  
+componentes, reducers, store, etc. el proyecto frontend no se ha concluido por tiempo acotado :/
+
+
+____________________________________________    
+
+dadas las condiciones de tiempo acotado, entrega 16 oct, 8:00 am, se entrega la construcción de todo lo anteriormente  
+comentado.
+
+
+Naaman Falcón Olguín. 
+
+

@@ -41,7 +41,9 @@ existe un archivo docker-compose que tiene la configuración para levantar rapid
 de mysql + phpmyadmin en la carpeta mysql-docker 
 
 cd mysql-docker  
-docker-compose up -d
+docker-compose up -d 
+
+*modificar puertos si se utiliza esta opción
 
 
 ## Frontend

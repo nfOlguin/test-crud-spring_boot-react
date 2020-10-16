@@ -7,13 +7,13 @@ Al ejecutar el proyecto (run in main class: SpringBootMysqlCrudApplication)
 se tendrá acceso al crud solicitado para el registro de tareas.  
 Se configuró la aplicación para ser lanzada inicialmente en el puerto 8082
 
-####Se han creado los metodos solicitados
+#### Se han creado los metodos solicitados
 * crear
 * eliminar
 * actualziar
 * leer
 
-####El desarrollo del backend contempla:
+#### El desarrollo del backend contempla:
 
 **Tecnologías:**
 - Spring boot 2.1
@@ -24,7 +24,7 @@ Se configuró la aplicación para ser lanzada inicialmente en el puerto 8082
 **Implementación:**
 - Swagger2  -> http://localhost:8082/swagger-ui.html#/task-controller
 
-####la estructura del proyecto mantiene el tregistro por capas de:  
+#### La estructura del proyecto mantiene el tregistro por capas de:  
 - Modelo
 - Repository
 - Servicios
@@ -52,8 +52,7 @@ componentes, reducers, store, etc. el proyecto frontend no se ha concluido por t
 
 ____________________________________________    
 
-dadas las condiciones de tiempo acotado, entrega 16 oct, 8:00 am, se entrega la construcción de todo lo anteriormente  
-comentado.
+dadas las condiciones de tiempo acotado, entrega 16 oct, 8:00 am, se entrega la construcción de todo lo anteriormente comentado.
 
 
 Naaman Falcón Olguín. 

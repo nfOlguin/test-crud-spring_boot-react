@@ -6,11 +6,9 @@ import Task from './components/Tasks';
 function App() {
   return (
     <div className="App">
-     naaman
-     <Task></Task>
+     test
 
     </div>
   );
 }
-
 export default App;

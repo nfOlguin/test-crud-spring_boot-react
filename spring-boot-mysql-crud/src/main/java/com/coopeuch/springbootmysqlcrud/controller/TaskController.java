@@ -4,6 +4,9 @@ import com.coopeuch.springbootmysqlcrud.model.Task;
 import com.coopeuch.springbootmysqlcrud.repo.TaskRepo;
 import com.coopeuch.springbootmysqlcrud.service.TaskService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,31 +29,38 @@ public class TaskController {
     @Autowired
     protected ObjectMapper mapper;
 
-    //read
-    @GetMapping("/tasks")
+    @ApiOperation(value = "Busca todas las tareas.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tarea encontrada", response = Task.class),
+            @ApiResponse(code = 401, message = "No tiene permisos para ver las tareas", response = HttpStatus.class),
+            @ApiResponse(code = 404, message = "No se encontró registro de tareas", response = HttpStatus.class)})
+    @GetMapping(value= "/tasks")
     public ResponseEntity<?> getAllTasks() {
 
         List<Task> taskList = new ArrayList<>();
         Iterable<Task> tasks = taskService.findAll();
-
+        if(!tasks.iterator().hasNext()){
+            return new ResponseEntity<>(taskList, HttpStatus.NO_CONTENT);
+        }
         tasks.forEach(taskList::add);
         return new ResponseEntity<>(taskList, HttpStatus.OK);
     }
 
 
-    //create
-    @PostMapping("/tasks/create")
+    @ApiOperation(value = "Crea una tarea.", notes = "fecha de creación registrada por el sistema")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tarea encontrada", response = Task.class),
+            @ApiResponse(code = 401, message = "No tiene permisos para ver las tareas", response = HttpStatus.class),
+            @ApiResponse(code = 406, message = "Objeto de entrada no corresponde ", response = HttpStatus.class)})
+    @PostMapping(value= "/tasks/create")
     public ResponseEntity<?> create(@RequestBody String taskJson) throws IOException {
 
         this.mapper = new ObjectMapper();
         Task task = this.mapper.readValue(taskJson, Task.class);
-
         Date dt = new Date();
-
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentTime = sdf.format(dt);
         task.setFechaCreacion(currentTime);
-
         if (!taskIsValid(task, taskJson)) {
             return new ResponseEntity<Task>(task, HttpStatus.NOT_ACCEPTABLE);
         } else {
@@ -59,8 +69,12 @@ public class TaskController {
         return new ResponseEntity<Task>(HttpStatus.CREATED);
     }
 
-    //get By Id
-    @GetMapping("/tasks/{id}")
+    @ApiOperation(value = "Obtiene una tarea por su id.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tarea encontrada", response = Task.class),
+            @ApiResponse(code = 401, message = "No tiene permisos para ver las tareas", response = HttpStatus.class),
+            @ApiResponse(code = 404, message = "Tarea no encontrada ", response = HttpStatus.class)})
+    @GetMapping(value = "/tasks/{id}")
     public ResponseEntity<?> getById(@PathVariable("id") Long id) {
         Optional<Task> taskData = taskService.findById(id);
         if (!taskData.isPresent()) {
@@ -70,8 +84,12 @@ public class TaskController {
         }
     }
 
-    //update
-    @PutMapping("/tasks/{id}")
+    @ApiOperation(value = "Actualiza una tarea.", notes = "Seleccionada por su id")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tarea Actualizada", response = Task.class),
+            @ApiResponse(code = 401, message = "No tiene permisos para editar las tareas", response = HttpStatus.class),
+            @ApiResponse(code = 404, message = "Tarea no encontrada ", response = HttpStatus.class)})
+    @PutMapping(value = "/tasks/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable("id") Long id, @RequestBody Task taskJson) {
 
         Optional<Task> taskData = taskService.findById(id);
@@ -88,8 +106,12 @@ public class TaskController {
         }
     }
 
-    //delete
-    @DeleteMapping("/tasks/{id}")
+    @ApiOperation(value = "Elimina una tarea.", notes = "Seleccionada por su id")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "tarea eliminada", response = Task.class),
+            @ApiResponse(code = 401, message = "No tiene permisos para eliminar las tareas", response = HttpStatus.class),
+            @ApiResponse(code = 404, message = "Tarea no encontrada ", response = HttpStatus.class)})
+    @DeleteMapping(value= "/tasks/{id}")
     public ResponseEntity<String> deleteTask(@PathVariable("id") Long id) {
         try {
             taskService.deleteById(id);

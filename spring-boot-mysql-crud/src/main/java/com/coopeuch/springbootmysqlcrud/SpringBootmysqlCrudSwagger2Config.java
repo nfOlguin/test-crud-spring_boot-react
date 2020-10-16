@@ -55,7 +55,7 @@ public class SpringBootmysqlCrudSwagger2Config {
     }
 
     private ApiInfo apiInfo(ReloadableResourceBundleMessageSource messageSource) {
-        return new ApiInfoBuilder().title("Test crud de tareas - coopeuch")
+        return new ApiInfoBuilder().title("Test-crud-tareas-coopeuch")
                 .version(messageSource.getMessage("spring-boot-mysql-crud.api.version", null, Locale.getDefault()))
                 .description("spring-boot-mysql-crud").build();
     }

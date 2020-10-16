@@ -42,14 +42,14 @@ const InputSection = () => {
         placeholder="Task descripcion"
         value={descripcion}
         onChange={e => 
-          dispatch(inputActions.setInputTitle(e.target.value))
+          dispatch(inputActions.setInputDescripcion(e.target.value))
         }
       />
       <textarea
         placeholder="Task content"
         value={vigente}
         onChange={e => 
-          dispatch(inputActions.setInputContent(e.target.value))
+          dispatch(inputActions.setInputVigente(e.target.value))
         }
       ></textarea>
       <div

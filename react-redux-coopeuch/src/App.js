@@ -3,6 +3,7 @@ import './App.css';
 import store from './redux/createStore'
 import { Provider } from 'react-redux';
 import InputSection from './components/InputSection';
+import TaskSection from './components/TasksSection';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
     <div className="container">
 
     <h1> Mis tareas </h1>
-      <InputSection/>
+    <InputSection />
+    <div className="line"></div>
+    <TaskSection />
     </div>
     </Provider>
   );

@@ -4,7 +4,8 @@
 **Applicación Spring boot  Rest Api**
 
 Al ejecutar el proyecto (run in main class: SpringBootMysqlCrudApplication)  
-se tendrá acceso al crud solicitado para el registro de tareas.
+se tendrá acceso al crud solicitado para el registro de tareas.  
+Se configuró la aplicación para ser lanzada inicialmente en el puerto 8082
 
 ####Se han creado los metodos solicitados
 * crear
@@ -21,7 +22,7 @@ se tendrá acceso al crud solicitado para el registro de tareas.
 - spring jpa
 
 **Implementación:**
-- Swagger2 
+- Swagger2  -> http://localhost:8082/swagger-ui.html#/task-controller
 
 ####la estructura del proyecto mantiene el tregistro por capas de:  
 - Modelo

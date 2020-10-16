@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import notes from './notes';
+import tasks from './tasks';
 import inputs from './inputs';
 
 export default combineReducers({
-  notes,
+  tasks,
   inputs,
 })

@@ -21,7 +21,7 @@ se tendrá acceso al crud solicitado para el registro de tareas.
 - spring jpa
 
 **Implementación:**
-- Swagger2  -> http://localhost:8080/swagger-ui.html#/task-controller
+- Swagger2  -> http://localhost:8082/swagger-ui.html#/task-controller
 
 #### La estructura del proyecto mantiene el tregistro por capas de:  
 - Modelo

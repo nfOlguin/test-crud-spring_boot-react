@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-
-import Task from './components/Tasks';
+import store from './redux/createStore'
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <div className="App">
-     test
-
+    <Provider store={store}>
+    <div className="container">
+      test naaman
     </div>
+    </Provider>
   );
 }
 export default App;

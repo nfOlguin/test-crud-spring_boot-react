@@ -1,4 +1,4 @@
-## test crud spring boot + react ##
+## crud spring boot + react redux ##
 
 ### Backend
 **Applicación Spring boot  Rest Api**
@@ -22,38 +22,52 @@ se tendrá acceso al crud solicitado para el registro de tareas.
 
 **Implementación:**
 - Swagger2  -> http://localhost:8082/swagger-ui.html#/task-controller
-
 #### La estructura del proyecto mantiene el tregistro por capas de:  
 - Modelo
 - Repository
 - Servicios
 - Controller
 
-La interfaz TaskService se crea solo para mantener la estructura idealizada y accesar a la implementación
+La interfaz TaskService se crea solo para mantener la estructura y seguir buenas prácticas  
+haciendo la inyección del servicio a traves de su interfaz
 
 
 ## Base de datos 
-Se ha utilizado mysql para la persistencia de datos, para levantar el proyecto  
- junto a la bdd se dispone del script ubicado en "script-sql"
+Se ha utilizado mysql para la persistencia de datos.  
+Para levantar el proyecto junto a la bdd se dispone del script ubicado en la carpeta "script-sql"
 
 **nota:**
-existe un archivo docker-compose que tiene la configuración para levantar rapidamente una instancia 
-de mysql + phpmyadmin en la carpeta mysql-docker 
-
+existe un archivo docker-compose que tiene la configuración para levantar rapidamente una instancia docker 
+de mysql + phpmyadmin en la carpeta mysql-docker, para ejecutarlo es necesario tener instalado docker y docker-compose  
+__pasos:__  
 cd mysql-docker  
 docker-compose up -d 
 
-*modificar puertos si se utiliza esta opción
-
-
 ## Frontend
 se crea estructura para proyecto frontend incorporando react redux, la estructura base contiene:  
-componentes, reducers, store, etc. el proyecto frontend no se ha concluido por tiempo acotado :/
+componentes, redux (actions, reducers, store). el proyecto frontend a la fecha muestra:  
+pantalla principal de tareas muestra el listado de tareas registrados y las opciones para:  
+* agregar tarea
+* modificar tarea
+* eliminar tarea
+* lista de tareas registradas
 
+Ejecución:
+En raiz del proyecto  
+- cd react-redux-coopeuch
+-npm install (para inicializar dependencias redux, node-sass)
+-npm start
+
+#### pendiente de frontend
+
+**La applicaión front no registra en API, pendiente conectar :/**
 
 ____________________________________________    
 
-dadas las condiciones de tiempo acotado, entrega 16 oct, 8:00 am, se entrega la construcción de todo lo anteriormente comentado.
+segunda parte de entrega, entrega oficial viernes 16, 08:00am 
+
+Se intentó mantener la mejor estructura del proyecto, tanto back y front
+priorizando el lógica e interfaz, los pendientes se deben a falta de tiempo
 
 
 Naaman Falcón Olguín. 

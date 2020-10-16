@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import taskActions from '../redux/actions/taskActions';
-import inputActions from '../redux/actions/taskActions';
+import inputActions from '../redux/actions/inputActions';
 import './inputSection.style.scss';
 
 const InputSection = () => {
@@ -35,29 +35,35 @@ const InputSection = () => {
     dispatch(inputActions.resetInputs())
   }
 
+  const options = [
+    { value: 'true', label: 'activa' },
+    { value: 'false', label: 'inactiva' }
+  ]
+
   return (
     <div className="InputSection__container">
       <input
         type="text"
-        placeholder="Task descripcion"
+        placeholder="Define tu tarea..."
         value={descripcion}
         onChange={e => 
           dispatch(inputActions.setInputDescripcion(e.target.value))
         }
-      />
+      />    
+
       <textarea
-        placeholder="Task content"
+        placeholder="Vigente?"
         value={vigente}
         onChange={e => 
           dispatch(inputActions.setInputVigente(e.target.value))
         }
       ></textarea>
-      <div
-        className="InputSection__container__btnWrapper"
-      >
-        <button
-          onClick={id === -1 ? addTask : updateTask}
-        >
+
+
+
+      
+      <div className="InputSection__container__btnWrapper">
+        <button onClick={id === -1 ? addTask : updateTask}>
           {id === -1 ? "ADD TASK" : "UPDATE TASK"}
         </button>      
         {id !== -1 &&

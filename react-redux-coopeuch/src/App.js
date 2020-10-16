@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import store from './redux/createStore'
 import { Provider } from 'react-redux';
 import InputSection from './components/InputSection';

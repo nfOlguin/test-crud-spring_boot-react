@@ -2,7 +2,7 @@ import actionTypes from '../actionTypes';
 
 export default {
   setInputDescripcion: descripcion => ({
-    type: actionTypes.SET_INPUT_DESCRPCION,
+    type: actionTypes.SET_INPUT_DESCRIPCION,
     descripcion,
   }),
   setInputVigente: vigente => ({

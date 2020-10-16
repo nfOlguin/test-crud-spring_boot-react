@@ -1,14 +1,15 @@
 import React from 'react';
 import './TaskItem.styles.scss';
 
-const TaskItem = ({ descripcion, vigente, onItemClicked}) => {
+const TaskItem = ({ descripcion, fechaCreacion, vigente, onItemClicked}) => {
   return (
     <div
       className="TaskItem__container"
       role="button"
       onClick={onItemClicked}
     >
-      <h2>{descripcion}</h2>
+      <h4>{descripcion}</h4>
+      <p>{fechaCreacion}</p>
       <p>{vigente}</p>
     </div>
   );

@@ -10,11 +10,11 @@ const TasksSection = () => {
 
   const onItemClicked = (item, index) => {
     dispatch(inputActions.setInputId(index));
-    dispatch(inputActions.setInputDescripción(item.descripcion));
-    dispatch(inputActions.setInputContent(item.vigente));
+    dispatch(inputActions.setInputDescripcion(item.descripcion));
+    dispatch(inputActions.setInputVigente(item.vigente));
   }
 
-  if(tasks.length === 2) {
+  if(tasks.length === 0) {
     return (
       <div className="TasksSection__container__empty">
         <p>
@@ -26,17 +26,12 @@ const TasksSection = () => {
   return (
     <div className="TasksSection__container">
      
-      <TaskItem
-        descripcion="tarea 1"
-        vigente= "true"
-        fechaCreacion= "3 mayo"
-      />
-
-      {tasks.map((item, index) => {
+    {tasks.map((item, index) => {
         if(item) {
           return (
             <TaskItem
               descripcion={item.descripcion}
+              fechaCreacion={item.fechaCreacion}
               vigente={item.vigente}
               onItemClicked={() => {
                 onItemClicked(item, index);
